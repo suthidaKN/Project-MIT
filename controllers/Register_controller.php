@@ -20,8 +20,8 @@ class RegisterController{
         settype($offID,"string");
         echo "off =  $offID";
         echo "key === $user,$pass, $offName,$offPos" ;
-        // Register::addOff($offID,$offName,$offPos);
-        // Register::addAcc($user,$pass,$offID);
+        //Register::addOff($offID,$offName,$offPos);
+        //Register::addAcc($user,$pass,$offID);
         
     }
 }
