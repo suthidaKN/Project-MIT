@@ -7,7 +7,7 @@ class AboutMeController{
     public function index(){
         $ID = $_SESSION["user"];
         echo "ID=$ID";
-        $register_list = location::getAll();
+        $tiiangList = location::getAllUser($ID);
         $document = Register::getID($ID);
         require_once("./views/AboutMe/index_AboutMe.php");
     }

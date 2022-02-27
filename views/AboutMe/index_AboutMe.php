@@ -28,13 +28,26 @@
         background-color: #f6efff;
         padding: 30px;
         margin: 60px;
-        height: 400px;
+        height: 450px;
         border-radius: 50px;   
         text-align: start; 
     }
     .box:hover{background: #b0b0ff; color: #fff;}
 
-    
+    .column1 {
+        width: 35%;
+    }
+ 
+    .box1{
+        background-color: #320074;
+        color: #f6efff;
+        padding: 30px;
+        margin: 20px;
+        height: 200px;
+        border-radius: 30px;   
+        text-align: start; 
+    }
+
     h2{
         font-size: 30;
     }
@@ -101,6 +114,12 @@
     }
     p5 {
     font-size: 30px;
+    font-family: 'Sriracha', cursive;
+    color: #3F0069;
+  }
+  p6 {
+    font-size: 40px;
+    font-family: 'Sriracha', cursive;
     color: #3F0069;
   }
     
@@ -114,30 +133,67 @@
             <br>  
         
             <center>
-            <br><p5><?php echo "ข้อมูลของฉัน";?></p5><br>
-            <a class="btn btn-default" style="background-color: #ff0000; color: #fff" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>เพิ่มสถานที่</a>
+            <br><p6><?php echo "ข้อมูลของฉัน";?></p6><br><br>
+            <a class="btn btn-default" style="background-color: #F7FF86; color: #45555f ; border-radius: 30px; " href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>เพิ่มสถานที่</a>
  
-            <div class="column">
-                    <div class="box">
-                    <a class="btn btn-default" style="background-color: #4400FF; color: #fff" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>แก้ไขข้อมูล</a><br>
-                        <?php echo "user : $document->user";?> <br>
+            <div class="column1">
+                    <div class="box1">
+                    <div style="text-align: end;">
+                    <a class="btn btn-default" style="background-color:  #56C45F; color: #fff; border-radius: 15px; "href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>แก้ไขข้อมูล</a><br>
+                    </div>
+                        <?php echo "username : $document->user";?> <br>
                         <?php echo "password : $document->pass";?> <br>
                         <?php echo "name: $document->offName";?> <br>
                         <?php echo "position : $document->offPos";?> <br>
                     </div>
                 </div>
                 <br><p5><?php echo "ข้อมูลสถานที่ของฉัน";?></p5><br>
+                <?php foreach($tiiangList as $tiiang){?>
                 <div class="column">
                     <div class="box">
-                    <a class="btn btn-default" style="background-color: #0051FF; color: #fff" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>แก้ไข</a>
-                    <a class="btn btn-default" style="background-color: #00FF80; color: #fff" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>ลบ</a><br>
- 
-                        <?php echo "user : $document->user";?> <br>
-                        <?php echo "password : $document->pass";?> <br>
-                        <?php echo "name: $document->offName";?> <br>
-                        <?php echo "position : $document->offPos";?> <br>
+                        <div style="text-align: end;">
+                            <a class="btn btn-default" style="background-color: #56C45F; color: #fff; border-radius: 15px;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>แก้ไขข้อมูล</a>
+                            <a class="btn btn-default" style="background-color: #D63E3E; color: #fff; border-radius: 15px;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>ลบข้อมูล</a>
+                        </div>
+                        <?php if($tiiang->provinceID =="1"){  echo "$tiiang->amphureName_th"; } ?>
+                        <?php if($tiiang->provinceID!="1"){  echo "อำเภอ$tiiang->amphureName_th";} ?>
+                        <?php if($tiiang->id_level=="1"){ ?> <p1><?php echo "$tiiang->name_level";?></p1><br> <?php } ?>
+                        <?php if($tiiang->id_level=="2"){ ?> <p2><?php echo "$tiiang->name_level";?></p2><br> <?php } ?>
+                        <?php if($tiiang->id_level=="3"){ ?> <p3><?php echo "$tiiang->name_level";?></p3><br> <?php } ?>
+                        <?php if($tiiang->id_level=="4"){ ?> <p4><?php echo "$tiiang->name_level";?></p4><br><?php } ?>
+                        <h2><?php echo "$tiiang->nameLocation";?></h2><br>
+                
+                        <?php if($tiiang->id_status=="1"){ ?>
+                            <img src="./images/accept.png" style="width: 30px; height: 30px;"/>
+                            <?php echo "$tiiang->name_status";?>
+                            <img src="./images/hospital-bed (1).png" style="width: 30px; height: 30px;"/>
+                            <?php 
+                            settype($tiiang->quatity,"integer");
+                            settype($tiiang->use,"integer");
+                            $sum = $tiiang->quatity-$tiiang->use;
+                            echo "มีเตียง : $sum";?><br><br>
+                           <h3><?php echo "ช่องทางการติดต่อ : ";?><br></h3>
+                            <?php if(!is_null($tiiang->tel )){  echo "tel : $tiiang->tel";} ?><br>
+                            <?php if(!is_null($tiiang->facebook )){  echo "Facebook : $tiiang->facebook"; } ?><br>
+                            <?php if(!is_null($tiiang->web )){  echo "Website : $tiiang->web"; } ?><br>
+                            <?php if(!is_null($tiiang->line)){  echo "Line : $tiiang->line"; }?><br>
+                            <?php echo "ที่อยู่ : $tiiang->address";?>
+                            <?php if($tiiang->provinceID =="1"){  echo "$tiiang->amphureName_th"; } ?>
+                            <?php if($tiiang->provinceID!="1"){  echo "อำเภอ$tiiang->amphureName_th";} ?>
+                            <?php echo "จังหวัด$tiiang->provinceName_th";?> <br>
+                        <?php } ?>
+                        <?php if($tiiang->id_status =="2"){  ?> 
+                            <img src="./images/cancel.png" style="width: 30px; height: 30px;"/>
+                            <?php echo "$tiiang->name_status";?><br>
+                        <?php } ?><br>
+        
+                        <?php echo "อัพเดตล่าสุด : $tiiang->date";?> <br>
+                         
                     </div>
                 </div>
+<?php
+            }
+            ?>
                 
             <br><br><br><br><br><br>
             

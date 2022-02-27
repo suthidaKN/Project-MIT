@@ -114,6 +114,59 @@
             return $locationList;
         }
 
+        public static function getAllUser($ID){
+
+            $locationList = [];
+            require("./connection_connect.php");
+            $sql = "SELECT *from location
+            LEFT JOIN level on location.level = level.ID_level
+            LEFT JOIN status on location.status = status.ID_status
+            left join contact on location.contactID = contact.contactID
+            left join thai_amphures on location.amphures = thai_amphures.id_amphure
+            LEFT join thai_provinces on thai_provinces.PV_id = thai_amphures.province_id
+            left join thai_geography on thai_geography.id = thai_provinces.PV_geography_id
+            left join officer on officer.officer_id = contact.offID
+            LEFT join account on account.nameID = officer.officer_id
+            WHERE account.user = '$ID';";
+            $result = $conn->query($sql);
+            $row=0;
+            while($my_row = $result->fetch_assoc()){
+    
+                $id_location = $my_row['ID_location'];
+                $nameLocation = $my_row['name_location'];
+                $id_level = $my_row['ID_level'];
+                $name_level = $my_row['name_level'];
+                $id_status = $my_row['ID_status'];
+                $name_status = $my_row['name_status'];
+                $use = $my_row['use'];
+                $quatity = $my_row['quantity'];
+                $date = $my_row['Date'];
+                $offID = $my_row['officer_id'];
+                $offName = $my_row['officer_name'];
+                $offPos = $my_row['officer_position'];
+                $address = $my_row['address'];
+                $amphureID = $my_row['id_amphure'];
+                $amphureName_th = $my_row['AP_name_th'];
+                $amphureName_en = $my_row['AP_name_en'];
+                $provinceID = $my_row['PV_id'];
+                $provinceName_th = $my_row['PV_name_th'];
+                $provinceName_en = $my_row['PV_name_en'];
+                $geographyID = $my_row['id'];
+                $geographyName_th = $my_row['name'];
+                $geographyName_en = $my_row['name'];
+                $contactID = $my_row['contactID'];
+                $tel = $my_row['tel'];
+                $line = $my_row['line'];
+                $facebook = $my_row['facebook'];
+                $web = $my_row['website'];
+                $locationList[] = new location($row,$id_location,$nameLocation,$id_level,$name_level,$id_status,$name_status,$use,$quatity,$date,$offID,$offName,$offPos,$address,$amphureID,$amphureName_th,$amphureName_en,$provinceID,$provinceName_th,$provinceName_en,$geographyID,$geographyName_th,$geographyName_en,$contactID,$tel,$line,$facebook,$web);
+
+            }
+            require("./connection_close.php");
+    
+            return $locationList;
+        }
+
 
         public static function getID($ID){
 
