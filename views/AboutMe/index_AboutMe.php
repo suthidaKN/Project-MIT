@@ -134,7 +134,7 @@
         
             <center>
             <br><p6><?php echo "ข้อมูลของฉัน";?></p6><br><br>
-            <a class="btn btn-default" style="background-color: #F7FF86; color: #45555f ; border-radius: 30px; " href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>เพิ่มสถานที่</a>
+            <a class="btn btn-default" style="background-color: #F4FF5B; color: #2E3D46 ; border-radius: 30px; width:15% ;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>เพิ่มสถานที่</a>
  
             <div class="column1">
                     <div class="box1">
