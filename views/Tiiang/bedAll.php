@@ -27,9 +27,9 @@
     .box{
         background-color: #f6efff;
         padding: 30px;
-        margin: 60px;
-        height: 400px;
-        border-radius: 50px;   
+        margin: 10px;
+        height: 200px;
+        border-radius: 30px;   
         text-align: start; 
     }
     .box:hover{background: #b0b0ff; color: #fff;}
@@ -118,7 +118,7 @@
             <a class="btn btn-default" style="background-color: #ff0000; color: #fff" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>สำหรับผู้ป่วยสีแดง</a>
 
             <center>
-                
+            
             <br><p5><?php echo "สถานที่ : $tiiang ที่";?></p5>
             <?php foreach($tiiangList as $tiiang){?>
                 <div class="column">
@@ -129,7 +129,7 @@
                         <?php if($tiiang->id_level=="2"){ ?> <p2><?php echo "$tiiang->name_level";?></p2><br> <?php } ?>
                         <?php if($tiiang->id_level=="3"){ ?> <p3><?php echo "$tiiang->name_level";?></p3><br> <?php } ?>
                         <?php if($tiiang->id_level=="4"){ ?> <p4><?php echo "$tiiang->name_level";?></p4><br> <?php } ?>
-                        <h2><?php echo "$tiiang->nameLocation";?></h2><br>
+                        <h2><?php echo "$tiiang->nameLocation";?></h2>
                 
                         <?php if($tiiang->id_status=="1"){ ?>
                             <img src="./images/accept.png" style="width: 30px; height: 30px;"/>
@@ -139,23 +139,17 @@
                             settype($tiiang->quatity,"integer");
                             settype($tiiang->use,"integer");
                             $sum = $tiiang->quatity-$tiiang->use;
-                            echo "มีเตียง : $sum";?><br><br>
-                           <h3><?php echo "ช่องทางการติดต่อ : ";?><br></h3>
-                            <?php if(!is_null($tiiang->tel )){  echo "tel : $tiiang->tel";} ?><br>
-                            <?php if(!is_null($tiiang->facebook )){  echo "Facebook : $tiiang->facebook"; } ?><br>
-                            <?php if(!is_null($tiiang->web )){  echo "Website : $tiiang->web"; } ?><br>
-                            <?php if(!is_null($tiiang->line)){  echo "Line : $tiiang->line"; }?><br>
-                            <?php echo "ที่อยู่ : $tiiang->address";?>
-                            <?php if($tiiang->provinceID =="1"){  echo "$tiiang->amphureName_th"; } ?>
-                            <?php if($tiiang->provinceID!="1"){  echo "อำเภอ$tiiang->amphureName_th";} ?>
-                            <?php echo "จังหวัด$tiiang->provinceName_th";?> <br>
-                        <?php } ?>
+                            echo "มีเตียง : $sum";?>
+                            <div style="text-align:end;">
+                        <a class="btn btn-default" style="background-color: #694f9b; color: #fff" href=?controller=Tiiang&action=bed&<?php echo "key=$key"?>&<?php echo "ID=$tiiang->id_location"?>>ข้อมูลเพิ่มเติม</a>
+                    </div>
+                        <?php }else{ ?>
                         <?php if($tiiang->id_status =="2"){  ?> 
                             <img src="./images/cancel.png" style="width: 30px; height: 30px;"/>
                             <?php echo "$tiiang->name_status";?><br>
                         <?php } ?><br>
         
-                        <?php echo "อัพเดตล่าสุด : $tiiang->date";?> <br>
+                        <?php echo "อัพเดตล่าสุด : $tiiang->date";}?> <br>
                          
                     </div>
                 </div>

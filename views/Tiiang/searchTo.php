@@ -84,6 +84,7 @@ function fncSubmit()
 
           
 <form   class="example" action="" method="get" onSubmit="JavaScript:return fncSubmit();">
+  <input type="hidden" name="key2"/>
 <select name="key" style="width:25%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
   <option value="0">-เลือกพื้นที่ที่ต้องการ-</option>
                     <option value="กรุงเทพ">กรุงเทพมหานคร</option>

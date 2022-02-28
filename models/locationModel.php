@@ -166,6 +166,27 @@
     
             return $locationList;
         }
+        public static function sentAllUser($ID){
+
+            $locationList = [];
+            require("./connection_connect.php");
+            $sql = "SELECT *from location
+            LEFT JOIN level on location.level = level.ID_level
+            LEFT JOIN status on location.status = status.ID_status
+            left join contact on location.contactID = contact.contactID
+            left join thai_amphures on location.amphures = thai_amphures.id_amphure
+            LEFT join thai_provinces on thai_provinces.PV_id = thai_amphures.province_id
+            left join thai_geography on thai_geography.id = thai_provinces.PV_geography_id
+            left join officer on officer.officer_id = contact.offID
+            LEFT join account on account.nameID = officer.officer_id
+            WHERE account.user = '$ID';";
+            $result = $conn->query($sql);
+            $row=$result->fetch_all();
+            $row = count($row);
+            require("./connection_close.php");
+            return $row;
+        
+        }
 
 
         public static function getID($ID){
@@ -290,7 +311,7 @@
             left join thai_geography on thai_geography.id = thai_provinces.PV_geography_id
             left join officer on officer.officer_id = contact.offID
             WHERE (level.name_level LIKE '%$key2%') and thai_provinces.PV_name_th like '%$key%' 
-            order by location.ID_location desc;";
+            order by location.ID_location desc";
             $result = $conn->query($sql);
             $row=0;
             while($my_row = $result->fetch_assoc()){
@@ -382,6 +403,24 @@
             or thai_amphures.AP_name_en like '%$key%' 
             or thai_provinces.PV_name_th like '%$key%' 
             or thai_provinces.PV_name_en like '%$key%'
+            order by location.ID_location desc";
+            $result = $conn->query($sql);
+            $row=$result->fetch_all();
+            $row = count($row);
+            require("./connection_close.php");
+            return $row;
+        }
+        public static function sentCountSearchPlace($key,$key2){
+            require("./connection_connect.php");
+            $sql = "SELECT *from location
+            LEFT JOIN level on location.level = level.ID_level
+            LEFT JOIN status on location.status = status.ID_status
+            left join contact on location.contactID = contact.contactID
+            left join thai_amphures on location.amphures = thai_amphures.id_amphure
+            LEFT join thai_provinces on thai_provinces.PV_id = thai_amphures.province_id
+            left join thai_geography on thai_geography.id = thai_provinces.PV_geography_id
+            left join officer on officer.officer_id = contact.offID
+            WHERE (level.name_level LIKE '%$key2%') and thai_provinces.PV_name_th like '%$key%' 
             order by location.ID_location desc";
             $result = $conn->query($sql);
             $row=$result->fetch_all();

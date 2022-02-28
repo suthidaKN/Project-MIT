@@ -147,7 +147,13 @@
                         <?php echo "position : $document->offPos";?> <br>
                     </div>
                 </div>
-                <br><p5><?php echo "ข้อมูลสถานที่ของฉัน";?></p5><br>
+               
+              <?php if($test == 0) { ?>  
+           <br><p5><?php echo "ยังไม่มีข้อมูลสถานที่ของคุณ";?></p5><br>
+                    <br><a class="btn btn-default" style="background-color: #F4FF5B; color: #2E3D46 ; border-radius: 30px; width:15% ;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>เพิ่มสถานที่</a>
+       <?php }
+        else { ?>
+               <br><p5><?php echo "ข้อมูลสถานที่ของฉัน";?></p5><br>
                 <?php foreach($tiiangList as $tiiang){?>
                 <div class="column">
                     <div class="box">
@@ -193,7 +199,13 @@
                 </div>
 <?php
             }
+        }
             ?>
+        
+                  
+ 
+                
+             
                 
             <br><br><br><br><br><br>
             

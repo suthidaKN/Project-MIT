@@ -52,7 +52,18 @@ session_id();
                       $_SESSION["pass"] = $row["pass"];
                       $_SESSION["nameID"] = $row["nameID"];
                       
-                      Header("Location: indexLogin.php");
+                      // Header("Location: indexLogin.php");
+                      echo '<script>
+                      setTimeout(function() {
+                       swal({
+                           title: "Login สำเร็จ",
+                           text: " ",
+                           type: "success"
+                       }, function() {
+                           window.location = "indexLogin.php"; //หน้าที่ต้องการให้กระโดดไป
+                       });
+                     }, 50);
+                 </script>';
                       
                   }else{
        echo '<script>

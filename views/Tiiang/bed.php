@@ -27,19 +27,15 @@
     .box{
         background-color: #f6efff;
         padding: 30px;
-        margin: 10px;
-        height: 210px;
-        border-radius: 30px;   
+        margin: 60px;
+        height: 400px;
+        border-radius: 50px;   
         text-align: start; 
     }
     .box:hover{background: #b0b0ff; color: #fff;}
 
-    
     h2{
         font-size: 30;
-    }
-    h3{
-        font-size: 18;
     }
     form.example input[type=text] {
         padding: 10px;
@@ -70,6 +66,9 @@
         content: "";
         clear: both;
         display: table;
+    }
+    h3{
+        font-size: 18;
     }
     p1{
         color: #cc0066;
@@ -110,21 +109,13 @@
 </head>
 <body>
     <div style="background-image: linear-gradient(#ccccff,#cc99ff); background-repeat: no-repeat; background-size: 100% 80%px; text-align: center;">
-        <div class="container-fluid" >
-            <br>  
-        
-            <a class="btn btn-default" style="background-color: #B700FF; color: #fff" href=?controller=Tiiang&action=search&<?php echo "key=$key"?>&<?php echo "key2=green"?>>เตียงใน<?php echo $key ?>ทั้งหมด</a>
-            <a class="btn btn-default" style="background-color: #00cc00; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=green"?>>สำหรับผู้ป่วยสีเขียว</a>
-            <a class="btn btn-default" style="background-color: #FFD000; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=yellow"?>>สำหรับผู้ป่วยสีเหลือง</a>
-            <a class="btn btn-default" style="background-color: #ff8000; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=orange"?>>สำหรับผู้ป่วยสีส้ม</a>
-            <a class="btn btn-default" style="background-color: #ff0000; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=red"?>>สำหรับผู้ป่วยสีแดง</a>
-        
-            <center>
-                
-            <br><p5><?php echo "จังหวัด".$key; echo"มีสถานที่ : $tiiang ที่";?></p5>
-            <?php foreach($tiiang_list as $tiiang){?>
-    
-                <div class="column">
+        <div class="container-fluid" style="height: 600px;">
+         <br><br>
+
+
+<center>
+   
+<div class="column">
                     <div class="box">
                         <?php if($tiiang->provinceID =="1"){  echo "$tiiang->amphureName_th"; } ?>
                         <?php if($tiiang->provinceID!="1"){  echo "อำเภอ$tiiang->amphureName_th";} ?>
@@ -134,7 +125,6 @@
                         <?php if($tiiang->id_level=="4"){ ?> <p4><?php echo "$tiiang->name_level";?></p4><br> <?php } ?>
                         <h2><?php echo "$tiiang->nameLocation";?></h2><br>
                 
-                        <?php if($tiiang->id_status=="1"){ ?>
                             <img src="./images/accept.png" style="width: 30px; height: 30px;"/>
                             <?php echo "$tiiang->name_status";?>
                             <img src="./images/hospital-bed (1).png" style="width: 30px; height: 30px;"/>
@@ -143,27 +133,22 @@
                             settype($tiiang->use,"integer");
                             $sum = $tiiang->quatity-$tiiang->use;
                             echo "มีเตียง : $sum";?>
-                            <div style="text-align:end;">
-                        <a class="btn btn-default" style="background-color: #694F9B; color: #fff" href=?controller=Tiiang&action=bedPlace&<?php echo "key=$key"?>&<?php echo "key2=$key2"?>&<?php echo "ID=$tiiang->id_location"?>>ข้อมูลเพิ่มเติม</a>
-                    </div>
-                        <?php }else{ ?>
-                        <?php if($tiiang->id_status =="2"){  ?> 
-                            <img src="./images/cancel.png" style="width: 30px; height: 30px;"/>
-                            <?php echo "$tiiang->name_status";?><br>
-                        <?php } ?><br>
-        
-                        <?php echo "อัพเดตล่าสุด : $tiiang->date";}?> <br>
-                         
-                    </div>
+                            <br>
+                             <h3><?php echo "ช่องทางการติดต่อ : ";?><br></h3>
+                            <?php if(!is_null($tiiang->tel )){  echo "tel : $tiiang->tel";} ?><br>
+                            <?php if(!is_null($tiiang->facebook )){  echo "Facebook : $tiiang->facebook"; } ?><br>
+                            <?php if(!is_null($tiiang->web )){  echo "Website : $tiiang->web"; } ?><br>
+                            <?php if(!is_null($tiiang->line)){  echo "Line : $tiiang->line"; }?><br>
+                            <?php echo "ที่อยู่ : $tiiang->address";?>
+                            <?php if($tiiang->provinceID =="1"){  echo "$tiiang->amphureName_th"; } ?>
+                            <?php if($tiiang->provinceID!="1"){  echo "อำเภอ$tiiang->amphureName_th";} ?>
+                            <?php echo "จังหวัด$tiiang->provinceName_th";?> <br><br>
+                   <div style="text-align:start;">
+                    <a class="btn btn-default" style="background-color:  #56C45F; color: #fff; border-radius: 15px; "href=?controller=Tiiang&action=bedAll&<?php echo "key=$key"?>>ย้อนกลับ</a><br>
+                    </div> 
                 </div>
-<?php
-            }
-            ?>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
-            
+                </div> 
             </center>
-
         </div>
-    </div>
-</body>
+                </body>
 </html>
