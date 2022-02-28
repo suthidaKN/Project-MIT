@@ -350,19 +350,59 @@
     
             return $locationList;
         }
+
+        public static function Deletelocation($ID){
+        
+            require("./connection_connect.php");
+            $sql = "DELETE FROM `location` WHERE `location`.`ID_location` = '$ID'";
+            $result = $conn->query($sql);
+            require("./connection_close.php");
+            return $result ;
+    
+        }
+
         public static function addLocation($id_location,$nameLocation,$id_level,$id_status,$use,$quatity,$date,$contactID,$address,$amphureID){
         
             require("./connection_connect.php");
-            $sql = "INSERT INTO `location` (`ID_location`, `name_location`, `level`, `status`, `use`, `quantity`, `Date`, `contactID`, `address`) 
+            $sql = "INSERT INTO `location` (`ID_location`, `name_location`, `level`, `status`, `use`, `quantity`, `Date`, `contactID`, `address`, `amphures`) 
             VALUES ('$id_location', '$nameLocation', '$id_level', '$id_status', '$use', '$quatity', '$date', '$contactID', '$address', '$amphureID')";
             $result = $conn->query($sql);
             require("./connection_close.php");
             return $result ;
     
         }
+
+        public static function updateLocation($id_location,$nameLocation,$id_level,$id_status,$use,$quatity,$date,$address,$amphureID){
+        
+            require("./connection_connect.php");
+            $sql = "UPDATE `location` 
+            SET `name_location` = '$nameLocation', 
+            `level` = '$id_level', 
+            `status` = '$id_status', 
+            `use` = '$use', 
+            `quantity` = '$quatity', 
+            `Date` = '$date', 
+            `address` = '$address', 
+            `amphures` = '$amphureID' 
+            WHERE `location`.`ID_location` = '$id_location'";
+            $result = $conn->query($sql);
+            require("./connection_close.php");
+            return $result ;
+    
+        }
+
         public static function sentCountAll(){
             require("./connection_connect.php");
             $sql = "SELECT *from location";
+            $result = $conn->query($sql);
+            $row=$result->fetch_all();
+            $row = count($row);
+            require("./connection_close.php");
+            return $row;
+        }
+        public static function sentCountContactAll(){
+            require("./connection_connect.php");
+            $sql = "SELECT *from contact";
             $result = $conn->query($sql);
             $row=$result->fetch_all();
             $row = count($row);

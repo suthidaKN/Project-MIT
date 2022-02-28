@@ -17,9 +17,7 @@
         }
         public function search(){
             $key = $_GET['key'];
-            echo "key = $key";
             $key2 = $_GET['key2'];
-            echo "key2 = $key2";
             $tiiang = location::sentCountSearch($key);
             $tiiang_list = location::search($key);
             if(empty($tiiang_list ))
@@ -29,9 +27,7 @@
         }
         public function searchPlace(){
             $key = $_GET['key'];
-            echo "key = $key";
             $key2 = $_GET['key2'];
-            echo "key2 = $key2";
             $tiiang = location::sentCountSearchPlace($key,$key2);
             $tiiang_list = location::searchPlace($key,$key2);
             require_once("./views/Tiiang/index_Tiiang.php");
@@ -45,11 +41,8 @@
         }
         public function bedPlace(){
             $ID = $_GET['ID'];
-            echo "ID = $ID";
             $key = $_GET['key'];
-            echo "key = $key";
             $key2 = $_GET['key2'];
-            echo "key2 = $key2";
             $tiiang = location::getID($ID);
             require_once("./views/Tiiang/bedPlace.php");
         }

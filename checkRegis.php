@@ -28,18 +28,38 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 </head>
 <body style="font-family: 'Prompt', sans-serif;  background-image: linear-gradient(#ccccff,#e5ccff);">
 <?php
-
-       echo '<script>
-       setTimeout(function() {
-        swal({
-            title: "สมัครสมาชิกสำเร็จ",
-            text: "กรุณารอระบบ Login ใน Workshop ต่อไป",
-            type: "success"
-        }, function() {
-            window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
-        });
-      }, 50);
-  </script>';
+require_once("./models/registerModel.php");
+$account = Register::getAll();
+$user = $_GET['User'];
+ foreach($account as $acc){
+  if($acc->user == $user){
+    echo '<script>
+    setTimeout(function() {
+     swal({
+         title: "user ซ้ำ สมัครสมาชิกใหม่",
+         text: "",
+         type: "warning"
+     }, function() {
+         window.location = "newRegis.php"; //หน้าที่ต้องการให้กระโดดไป
+     });
+   }, 50);
+</script>';
+      break;
+  }
+  else{
+    echo '<script>
+    setTimeout(function() {
+     swal({
+         title: "สมัครสมาชิกสำเร็จ",
+         text: "กรุณารอระบบ Login ใน Workshop ต่อไป",
+         type: "success"
+     }, function() {
+         window.location = "login.php"; //หน้าที่ต้องการให้กระโดดไป
+     });
+   }, 50);
+</script>';
+  }
+ }
 ?>
 <body style="font-family: 'Prompt', sans-serif;  background-image: linear-gradient(#ccccff,#e5ccff);">
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #9933ff;">

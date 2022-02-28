@@ -12,16 +12,23 @@ class RegisterController{
         $user = $_GET['User'];
         $pass = $_GET['Pass'];
         $offName = $_GET['Name'];
-        $offPos = $_GET['Pos'];
+        $offPos = $_GET['Pos'];  
         $countOff = Register::sentOffID();
-        echo "co = $countOff ";
         settype($countOff,"integer");
         $offID = $countOff+1;
         settype($offID,"string");
-        echo "off =  $offID";
-        echo "key === $user,$pass, $offName,$offPos" ;
-        //Register::addOff($offID,$offName,$offPos);
-        //Register::addAcc($user,$pass,$offID);
+        $account = Register::getAll();
+        foreach($account as $acc){
+            if($acc->user == $user){
+                echo "1";
+                break;
+            }
+            else{
+               Register::addOff($offID,$offName,$offPos);
+        Register::addAcc($user,$pass,$offID);
+            }
+        }
+      
         
     }
 }

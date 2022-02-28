@@ -94,6 +94,17 @@ class Register{
         return $row;
     }
 
+
+    public static function sentOffIDFromAcc($ID){
+        require("./connection_connect.php");
+        $sql = "SELECT account.nameID FROM `account` WHERE account.user = '$ID';";
+        $result = $conn->query($sql);
+        $row=$result->fetch_assoc();
+        $row = $row['nameID'];
+        require("./connection_close.php");
+        return $row;
+    }
+
     public static function addAcc($user,$pass,$offID){
         
         require("./connection_connect.php");
@@ -114,11 +125,35 @@ class Register{
         return $result ;
 
     }
-    public static function addCon($contactID,$face,$line,$tel,$web){
+    public static function addCon($contactID,$face,$line,$tel,$web,$offID){
         
         require("./connection_connect.php");
-        $sql = "INSERT INTO `contact` (`contactID`, `tel`, `line`, `facebook`, `website`) 
-        VALUES ('$contactID', '$tel', '$line', '$face','$web')";
+        $sql = "INSERT INTO `contact` (`contactID`, `tel`, `line`, `facebook`, `website`, `offID`) VALUES ('$contactID', '$tel', '$line', '$face','$web','$offID') ";
+        $result = $conn->query($sql);
+        require("./connection_close.php");
+        return $result ;
+
+    }
+    public static function updateCon($contactID,$face,$line,$tel,$web){
+        require("./connection_connect.php");
+        $sql = "UPDATE `contact` 
+        SET `tel` = '$tel', 
+        `line` = '$line',
+         `facebook` = '$face',
+          `website` = '$web' 
+          WHERE `contact`.`contactID` = '$contactID'";
+        $result = $conn->query($sql);
+        require("./connection_close.php");
+        return $result ;
+
+    }
+    
+    public static function updateOff($offID,$offName,$offPos){
+        require("./connection_connect.php");
+        $sql = "UPDATE `officer` 
+        SET `officer_name` = '$offName', 
+        `officer_position` = '$offPos' 
+        WHERE `officer`.`officer_id` = '$offID'";
         $result = $conn->query($sql);
         require("./connection_close.php");
         return $result ;

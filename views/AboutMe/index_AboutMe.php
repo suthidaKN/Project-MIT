@@ -134,23 +134,26 @@
         
             <center>
             <br><p6><?php echo "ข้อมูลของฉัน";?></p6><br><br>
-            <a class="btn btn-default" style="background-color: #F4FF5B; color: #2E3D46 ; border-radius: 30px; width:15% ;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>เพิ่มสถานที่</a>
+            <a class="btn btn-default" style="background-color: #F4FF5B; color: #2E3D46 ; border-radius: 30px; width:15% ;" href=?controller=AboutMe&action=newLocation>เพิ่มสถานที่</a>
  
             <div class="column1">
                     <div class="box1">
                     <div style="text-align: end;">
-                    <a class="btn btn-default" style="background-color:  #56C45F; color: #fff; border-radius: 15px; "href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>แก้ไขข้อมูล</a><br>
+                    <a class="btn btn-default" style="background-color:  #56C45F; color: #fff; border-radius: 15px; "href=?controller=AboutMe&action=updateME>แก้ไขข้อมูล</a><br>
                     </div>
                         <?php echo "username : $document->user";?> <br>
                         <?php echo "password : $document->pass";?> <br>
                         <?php echo "name: $document->offName";?> <br>
-                        <?php echo "position : $document->offPos";?> <br>
+                        <?php if(!is_null($document->offPos)){echo "position : $document->offPos";}
+                        else
+                        echo "position : ไม่ได้ระบุ";
+                        ?> <br>
                     </div>
                 </div>
                
               <?php if($test == 0) { ?>  
            <br><p5><?php echo "ยังไม่มีข้อมูลสถานที่ของคุณ";?></p5><br>
-                    <br><a class="btn btn-default" style="background-color: #F4FF5B; color: #2E3D46 ; border-radius: 30px; width:15% ;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>เพิ่มสถานที่</a>
+                    <br><a class="btn btn-default" style="background-color: #F4FF5B; color: #2E3D46 ; border-radius: 30px; width:15% ;" href=?controller=AboutMe&action=newLocation>เพิ่มสถานที่</a>
        <?php }
         else { ?>
                <br><p5><?php echo "ข้อมูลสถานที่ของฉัน";?></p5><br>
@@ -158,8 +161,9 @@
                 <div class="column">
                     <div class="box">
                         <div style="text-align: end;">
-                            <a class="btn btn-default" style="background-color: #56C45F; color: #fff; border-radius: 15px;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>แก้ไขข้อมูล</a>
-                            <a class="btn btn-default" style="background-color: #D63E3E; color: #fff; border-radius: 15px;" href=?controller=Tiiang&action=bedAll&<?php echo "key=red"?>>ลบข้อมูล</a>
+                        <?php $ID = $tiiang->id_location;?>
+                            <a class="btn btn-default" style="background-color: #56C45F; color: #fff; border-radius: 15px;" href=?controller=AboutMe&action=updateForm&<?php echo "ID=$ID" ?>>แก้ไขข้อมูล</a>
+                            <a class="btn btn-default" style="background-color: #D63E3E; color: #fff; border-radius: 15px;" href=?controller=AboutMe&action=deleteConfirm&<?php echo "ID=$ID" ?>>ลบข้อมูล</a>
                         </div>
                         <?php if($tiiang->provinceID =="1"){  echo "$tiiang->amphureName_th"; } ?>
                         <?php if($tiiang->provinceID!="1"){  echo "อำเภอ$tiiang->amphureName_th";} ?>
