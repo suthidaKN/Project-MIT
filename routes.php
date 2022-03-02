@@ -1,6 +1,6 @@
 <?php
 
-$controllers = array('pages'=>['home', 'error'],'Tiiang'=>['searchTo','index','search','bedAll','searchPlace','bed','bedPlace'],'Register'=>['regis','success'],'AboutMe'=>['index','home','newLocation','addLocation','deleteConfirm','delete','updateForm','update','updateME','updateMeConfrim']);
+$controllers = array('pages'=>['home', 'error'],'Tiiang'=>['searchTo','index','search','bedAll','searchPlace','bed','bedPlace'],'Register'=>['no','regis','success'],'AboutMe'=>['index','home','newLocation','addLocation','deleteConfirm','delete','updateForm','update','updateME','updateMeConfrim']);
 function call($controller, $action){
     require_once("controllers/".$controller."_controller.php");
     switch($controller)

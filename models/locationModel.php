@@ -74,7 +74,7 @@
             LEFT join thai_provinces on thai_provinces.PV_id = thai_amphures.province_id
             left join thai_geography on thai_geography.id = thai_provinces.PV_geography_id
             left join officer on officer.officer_id = contact.offID
-            order by location.ID_location desc";
+            order by thai_provinces.PV_id";
             $result = $conn->query($sql);
             $row=0;
             while($my_row = $result->fetch_assoc()){
@@ -258,7 +258,7 @@
             or thai_amphures.AP_name_en like '%$key%' 
             or thai_provinces.PV_name_th like '%$key%' 
             or thai_provinces.PV_name_en like '%$key%'
-            order by location.ID_location desc";
+            order by thai_provinces.PV_id";
             $result = $conn->query($sql);
             $row=0;
             while($my_row = $result->fetch_assoc()){

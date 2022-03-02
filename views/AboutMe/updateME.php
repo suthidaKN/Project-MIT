@@ -34,6 +34,27 @@
 
     });
 </script>
+<script type="text/javascript">
+function fncSubmit()
+{
+    if(document.getElementById('select').value  == "0"  )
+    {
+        alert('กรุณาเลือกระดับ (Level)');
+        return false;
+    }
+    if(document.getElementById('select1').value  == "0"  )
+    {
+        alert('กรุณาเลือกสถานะ (status)');
+        return false;
+    }
+    if(document.getElementById('province').value  == "0"  )
+    {
+        alert('กรุณาเลือกจังหวัดและอำเภอ/เขต');
+        return false;
+    }
+   
+}
+</script>
 <style>
     @keyframes shine {
         0% {
@@ -134,7 +155,7 @@
       form.example button {
           width: 10%;
           padding: 10px;
-          background: #9122F3;
+          background: #26B439;
           color: white;
           border: none;
           font-size: 17px;
@@ -145,7 +166,7 @@
       
   
       form.example button:hover {
-          background: #950BDA;
+          background: #11A10C;
       }
   
       form.example::after {
@@ -174,18 +195,26 @@
   <p1>แก้ไขข้อมูล</p1><br><br>
 
   <p2>ชื่อ </p2>
-  <input type="text" name="offName" value="<?php echo $document->offName?>"><br><br>
+  <input type="text" name="offName" value="<?php echo $document->offName?>" required minlength=""><br><br>
   <p2>ตำแหน่ง</p2>
-  <input type="text" name="offPos" value="<?php echo $document->offPos?>"><br><br>
+  <input type="text" name="offPos" value="<?php echo $document->offPos?>" required minlength=""><br><br>
  
   <input type="hidden" name="offID" value="<?php echo $document->offID ?>"/>
 
   </div>
-      <div class="form-group">
+  <a class="btn btn-default" style="   width: 10%;
+          padding: 10px;
+          background: #DB3B3B;
+          color: white;
+          border: none;
+          font-size: 17px;
+          border-left: none;
+          cursor: pointer;
+          border-radius: 20px;
+          " href=?controller=AboutMe&action=index>ยกเลิก</a>
           <input type="hidden" name="controller" value="AboutMe"/>
-          <button type="submit" name="action" value="index">ยกเลิก</button>
           <button type="submit" name="action" value="updateMeConfrim">บันทึก</button>
-      </div>
+      
   
   </form>
   

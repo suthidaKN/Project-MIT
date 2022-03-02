@@ -42,6 +42,27 @@
 
     });
 </script>
+<script type="text/javascript">
+function fncSubmit()
+{
+    if(document.getElementById('select').value  == "0"  )
+    {
+        alert('กรุณาเลือกระดับ (Level)');
+        return false;
+    }
+    if(document.getElementById('select1').value  == "0"  )
+    {
+        alert('กรุณาเลือกสถานะ (status)');
+        return false;
+    }
+    if(document.getElementById('province').value  == "0"  )
+    {
+        alert('กรุณาเลือกจังหวัดและอำเภอ/เขต');
+        return false;
+    }
+   
+}
+</script>
 <style>
     @keyframes shine {
         0% {
@@ -142,7 +163,7 @@
       form.example button {
           width: 10%;
           padding: 10px;
-          background: #9122F3;
+          background: #26B439;
           color: white;
           border: none;
           font-size: 17px;
@@ -153,7 +174,7 @@
       
   
       form.example button:hover {
-          background: #950BDA;
+          background: #11A10C;
       }
   
       form.example::after {
@@ -174,14 +195,14 @@
 
         <div style="text-align: center;">
           
-          <form class="example" action="" method="GET" >
+          <form class="example" action="" method="GET"  onSubmit="JavaScript:return fncSubmit();" >
   
           <br><br>
   <br>
   <div class="form-group">
   <p1>เพิ่มสถานที่</p1><br><br>
     <p2>ชื่อสถานที่ </p2>
-  <input type="text" placeholder="-ชื่อสถานที่-" name="name_location" value="" ><br><br>
+  <input type="text" placeholder="-ชื่อสถานที่-" name="name_location" value="" required minlength=""><br><br>
   <p2>ระดับ</p2>
   <select name="level" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
   <option value=" " >-เลือกระดับสี-</option>
@@ -191,18 +212,18 @@
                     <option value="4">ส้ม</option>
 </select><br><br>
   <p2>สถานะ </p2>
-  <select name="status" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
+  <select name="status" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select1">
   <option value=" " >-เลือกสถานะ-</option>
                     <option value="1">ว่าง</option>
                     <option value="2">ไม่ว่าง</option>
                     
 </select><br><br>
   <p2>จำนวนเตียงที่มี</p2>
-  <input type="text" placeholder="-จำนวนเตียงที่มี-" name="quatity" value=""><br><br>
+  <input type="text" placeholder="-จำนวนเตียงที่มี-" name="quatity" value="" required minlength=""><br><br>
   <p2>จำนวนเตียงที่ใช้</p2>
-  <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="" ><br><br>
+  <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="" required minlength="" ><br><br>
   <p2>ที่อยู่ </p2>
-  <input type="text" placeholder="-ที่อยู่-" name="address" ><br><br>
+  <input type="text" placeholder="-ที่อยู่-" name="address" required minlength=""><br><br>
   <p2>จังหวัด </p2>
                         <select name="PV_id" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
                             <option value=" " >-เลือกจังหวัด-</option>
@@ -247,11 +268,20 @@
   <input type="hidden" name="locationID" value="<?php echo $ID_location ?>"/>
   <input type="hidden" name="contactID" value="<?php echo $ID_contact ?>"/>
   </div>
-      <div class="form-group">
+   
           <input type="hidden" name="controller" value="AboutMe"/>
-          <button type="submit" name="action" value="index">ยกเลิก</button>
+          <a class="btn btn-default" style="   width: 10%;
+          padding: 10px;
+          background: #DB3B3B;
+          color: white;
+          border: none;
+          font-size: 17px;
+          border-left: none;
+          cursor: pointer;
+          border-radius: 20px;
+          " href=?controller=AboutMe&action=index>ยกเลิก</a>
           <button type="submit" name="action" value="addLocation">บันทึก</button>
-      </div>
+
   
   </form>
   

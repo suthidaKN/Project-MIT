@@ -34,6 +34,27 @@
 
     });
 </script>
+<script type="text/javascript">
+function fncSubmit()
+{
+    if(document.getElementById('select').value  == "0"  )
+    {
+        alert('กรุณาเลือกระดับ (Level)');
+        return false;
+    }
+    if(document.getElementById('select1').value  == "0"  )
+    {
+        alert('กรุณาเลือกสถานะ (status)');
+        return false;
+    }
+    if(document.getElementById('province').value  == "0"  )
+    {
+        alert('กรุณาเลือกจังหวัดและอำเภอ/เขต');
+        return false;
+    }
+   
+}
+</script>
 <style>
     @keyframes shine {
         0% {
@@ -134,7 +155,7 @@
       form.example button {
           width: 10%;
           padding: 10px;
-          background: #9122F3;
+          background: #26B439;
           color: white;
           border: none;
           font-size: 17px;
@@ -145,7 +166,7 @@
       
   
       form.example button:hover {
-          background: #950BDA;
+          background: #11A10C;
       }
   
       form.example::after {
@@ -173,31 +194,31 @@
   <div class="form-group">
   <p1>แก้ไขข้อมูลสถานที่</p1><br><br>
     <p2>ชื่อสถานที่ </p2>
-  <input type="text" placeholder="-ชื่อสถานที่-" name="name_location" value="<?php echo $location->nameLocation?> " ><br><br>
+  <input type="text" placeholder="-ชื่อสถานที่-" name="name_location" value="<?php echo $location->nameLocation?> " required minlength=""><br><br>
   <p2>ระดับ</p2>
   <select name="level" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
-  <option value=" " >-เลือกระดับสี-</option>
+  <option value="0" >-เลือกระดับสี-</option>
                     <option value="1">แดง</option>
                     <option value="2">เขียว</option>
                     <option value="3">เหลือง</option>
                     <option value="4">ส้ม</option>
 </select><br><br>
   <p2>สถานะ </p2>
-  <select name="status" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
-  <option value=" " >-เลือกสถานะ-</option>
+  <select name="status" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select1">
+  <option value="0" >-เลือกสถานะ-</option>
                     <option value="1">ว่าง</option>
                     <option value="2">ไม่ว่าง</option>
                     
 </select><br><br>
   <p2>จำนวนเตียงที่มี</p2>
-  <input type="text" placeholder="-จำนวนเตียงที่มี-" name="quatity" value="<?php echo $location->quatity?>"><br><br>
+  <input type="text" placeholder="-จำนวนเตียงที่มี-" name="quatity" value="<?php echo $location->quatity?>" required minlength=""><br><br>
   <p2>จำนวนเตียงที่ใช้</p2>
-  <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="<?php echo $location->use?>" ><br><br>
+  <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="<?php echo $location->use?>" required minlength=""><br><br>
   <p2>ที่อยู่ </p2>
-  <input type="text" placeholder="-ที่อยู่-" name="address" value="<?php echo $location->address?>"><br><br>
+  <input type="text" placeholder="-ที่อยู่-" name="address" value="<?php echo $location->address?>" required minlength=""><br><br>
   <p2>จังหวัด </p2>
                         <select name="PV_id" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
-                            <option value=" " >-เลือกจังหวัด-</option>
+                            <option value="0" >-เลือกจังหวัด-</option>
                             <?php
                                 require("./connection_connect.php");
                                 $sql="SELECT * FROM thai_provinces order by PV_name_th";
@@ -213,7 +234,7 @@
                         <p2>อำเภอ</p2>
                   
                         <select name="id_amphure" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="district">
-                            <option value=" ">-เลือกอำเภอ-</option>
+                            <option value="0">-เลือกอำเภอ-</option>
                         </select><br><br>
                
   <p2>เบอร์โทร </p2>
@@ -229,11 +250,20 @@
   <input type="hidden" name="locationID" value="<?php echo $location->id_location ?>"/>
   <input type="hidden" name="contactID" value="<?php echo $location->contactID ?>"/>
   </div>
-      <div class="form-group">
+
+      <a class="btn btn-default" style="   width: 10%;
+          padding: 10px;
+          background: #DB3B3B;
+          color: white;
+          border: none;
+          font-size: 17px;
+          border-left: none;
+          cursor: pointer;
+          border-radius: 20px;
+          " href=?controller=AboutMe&action=index>ยกเลิก</a>
           <input type="hidden" name="controller" value="AboutMe"/>
-          <button type="submit" name="action" value="index">ยกเลิก</button>
           <button type="submit" name="action" value="update">บันทึก</button>
-      </div>
+
   
   </form>
   

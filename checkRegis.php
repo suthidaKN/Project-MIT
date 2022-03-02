@@ -5,8 +5,8 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     $action = $_GET['action'];
 }else
 {
-    $controller = 'Register';
-    $action = 'success';
+    $controller = '';
+    $action = '';
 }
 ?>
 <html>
@@ -44,6 +44,8 @@ $user = $_GET['User'];
      });
    }, 50);
 </script>';
+$controller = 'Register';
+$action = 'no';
       break;
   }
   else{
@@ -58,6 +60,8 @@ $user = $_GET['User'];
      });
    }, 50);
 </script>';
+    $controller = 'Register';
+    $action = 'success';
   }
  }
 ?>

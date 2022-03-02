@@ -112,7 +112,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         <p1>คุณต้องการออกจากระบบหรือไม่? </p1><br><br><br>
         <a class="btn btn-default" style="width: 10%;
           padding: 10px;
-          background: #9122F3;
+          background: #44B940;
           color: white;
           border: none;
           font-size: 17px;
@@ -121,7 +121,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
           border-radius: 20px;" href="./indexLogin.php">ยกเลิก</a>
           <a class="btn btn-default" style="width: 10%;
           padding: 10px;
-          background: #9122F3;
+          background: #D44E4E;
           color: white;
           border: none;
           font-size: 17px;

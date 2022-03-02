@@ -144,9 +144,9 @@
                         <?php echo "username : $document->user";?> <br>
                         <?php echo "password : $document->pass";?> <br>
                         <?php echo "name: $document->offName";?> <br>
-                        <?php if(!is_null($document->offPos)){echo "position : $document->offPos";}
+                        <?php if(is_null($document->offPos) || $document->offPos=='-' ){ echo "position : ไม่ได้ระบุ";}
                         else
-                        echo "position : ไม่ได้ระบุ";
+                       echo "position : $document->offPos";
                         ?> <br>
                     </div>
                 </div>
@@ -183,10 +183,14 @@
                             $sum = $tiiang->quatity-$tiiang->use;
                             echo "มีเตียง : $sum";?><br><br>
                            <h3><?php echo "ช่องทางการติดต่อ : ";?><br></h3>
-                            <?php if(!is_null($tiiang->tel )){  echo "tel : $tiiang->tel";} ?><br>
-                            <?php if(!is_null($tiiang->facebook )){  echo "Facebook : $tiiang->facebook"; } ?><br>
-                            <?php if(!is_null($tiiang->web )){  echo "Website : $tiiang->web"; } ?><br>
-                            <?php if(!is_null($tiiang->line)){  echo "Line : $tiiang->line"; }?><br>
+                            <?php if(is_null($tiiang->tel ) || $tiiang->tel ==''){echo "tel : ไม่ได้ระบุ";}
+                            else{  echo "tel : $tiiang->tel";} ?><br>
+                            <?php if(is_null($tiiang->facebook  )|| $tiiang->facebook==''){echo "Facebook : ไม่ได้ระบุ";}
+                            else{  echo "Facebook : $tiiang->facebook"; } ?><br>
+                            <?php if(is_null($tiiang->web) || $tiiang->web ==""){echo "Website : ไม่ได้ระบุ";}
+                            else{  echo "Website : $tiiang->web"; } ?><br>
+                            <?php if(is_null($tiiang->line) || $tiiang->line==''){echo "Line : ไม่ได้ระบุ";}
+                            else{  echo "Line : $tiiang->line"; }?><br>
                             <?php echo "ที่อยู่ : $tiiang->address";?>
                             <?php if($tiiang->provinceID =="1"){  echo "$tiiang->amphureName_th"; } ?>
                             <?php if($tiiang->provinceID!="1"){  echo "อำเภอ$tiiang->amphureName_th";} ?>

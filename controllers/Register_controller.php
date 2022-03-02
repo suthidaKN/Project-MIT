@@ -16,19 +16,14 @@ class RegisterController{
         $countOff = Register::sentOffID();
         settype($countOff,"integer");
         $offID = $countOff+1;
+        echo $offID;
         settype($offID,"string");
-        $account = Register::getAll();
-        foreach($account as $acc){
-            if($acc->user == $user){
-                echo "1";
-                break;
-            }
-            else{
-               Register::addOff($offID,$offName,$offPos);
-        Register::addAcc($user,$pass,$offID);
-            }
-        }
-      
+        echo $user,$pass,$offName,$offPos;
+       Register::addOff($offID,$offName,$offPos);
+       Register::addAcc($user,$pass,$offID);
+        
+    }
+    public function no(){
         
     }
 }
