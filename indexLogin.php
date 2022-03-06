@@ -24,6 +24,17 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </head>
+<style>
+   p7 {
+    font-weight: 800;
+    text-align: center;
+    font-size: 30px;
+    color:#FFF8BE;
+    margin: 30px;
+ 
+    
+  }
+</style>
 <body style="font-family: 'Prompt', sans-serif;  background-image: linear-gradient(#ccccff,#e5ccff);">
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: #9933ff;">
   <div class="container-fluid">
@@ -44,8 +55,16 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="./Logout.php">logout</a>  
         </li>
+        
       </ul>
     </div>
+    <?php 
+    require_once("./models/registerModel.php");
+    $document = Register::getID($_SESSION["user"]);
+    ?>
+    <div style="text-align: end;">
+            <p7> <?php echo $document->offName ?> </p7>
+        </div>
   </div>
 </nav>
 <div style="background-color: #9933ff; text-align: center;" class="text-light">
@@ -62,7 +81,19 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <div class="row" >
               <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <h4 class="text-uppercase">Member</h4>
-                <h6>Suthida Khrueanak              6220504798</h6>
+                <h6>Pheeraya   Pechsangkoon       6220500695</h6>
+                <h6>Weerawut   Srikasem           6220502108</h6>
+                <h6>Nattawat   Sripatpiriyakul    6220502183</h6>
+                <h6>Siripattha Pinyosamosorn      6220503350</h6>
+                <h6>Suthida    Khrueanak          6220504798</h6>
+              </div>
+              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h4 class="text-uppercase">Thanks</h4>
+                <h6>คณะวิศวกรรมศาสตร์ กำแพงแสน</h6>
+                <h6>ภาควิชาวิศวกรรมคอมพิวเตอร์</h6>
+                <h6>ปีการศึกษา 2564</h6>
+                <h6>ภาคปลาย</h6>
+                
               </div>
             
             </div>

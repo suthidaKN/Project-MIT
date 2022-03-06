@@ -166,9 +166,21 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
         <footer class="text-center text-lg-start text-light"style="background-color: #9933ff">
           <div class="container p-4">
             <div class="row" >
-              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
                 <h4 class="text-uppercase">Member</h4>
-                <h6>Suthida Khrueanak              6220504798</h6>
+                <h6>Pheeraya   Pechsangkoon       6220500695</h6>
+                <h6>Weerawut   Srikasem           6220502108</h6>
+                <h6>Nattawat   Sripatpiriyakul    6220502183</h6>
+                <h6>Siripattha Pinyosamosorn      6220503350</h6>
+                <h6>Suthida    Khrueanak          6220504798</h6>
+              </div>
+              <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h4 class="text-uppercase">Thanks</h4>
+                <h6>คณะวิศวกรรมศาสตร์ กำแพงแสน</h6>
+                <h6>ภาควิชาวิศวกรรมคอมพิวเตอร์</h6>
+                <h6>ปีการศึกษา 2564</h6>
+                <h6>ภาคปลาย</h6>
+                
               </div>
             
             </div>

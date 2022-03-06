@@ -43,6 +43,7 @@ session_id();
                   $sql="SELECT * FROM account
                   WHERE  user='".$username."' 
                   AND  pass='".$password."' ";
+
                   $result = mysqli_query($conn,$sql);
 				
                   if(mysqli_num_rows($result)==1){
@@ -50,7 +51,6 @@ session_id();
  
                       $_SESSION["user"] = $row["user"];
                       $_SESSION["pass"] = $row["pass"];
-                      $_SESSION["nameID"] = $row["nameID"];
                       
                       // Header("Location: indexLogin.php");
                       echo '<script>
