@@ -53,18 +53,19 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
     }
   }
   form.example input[type=text] {
-          padding: 10px;
+          padding: 12px;
           font-size: 17px;
           border: none;
-          width: 30%;
+          width: 75%;
           background: #FEF5FF;
           border-radius: 15px;
+          
       }
       form.example input[type=password] {
-          padding: 10px;
+          padding: 12px;
           font-size: 17px;
           border: none;
-          width: 30%;
+          width: 75%;
           background: #FEF5FF;
           border-radius: 15px;
       }
@@ -90,6 +91,22 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
           content: "";
           clear: both;
           display: table;
+      }
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+
+      .column {
+          float: left;
+          width: 40%;
+      }
+ 
+      .box{
+          
+          padding: 20px;
+          text-align: center;
       }
 </style>
 <body style="font-family: 'Prompt', sans-serif;  background-image: linear-gradient(#ccccff,#e5ccff);">
@@ -124,7 +141,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             echo "file:newRegister" ;
         ?>
       </div>
-    <div style="height: 600px;">
+    <div style="height: 650px;">
       <br><br>
         <div style="text-align: center;">
           
@@ -134,15 +151,28 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
 <br>
 <div class="form-group">
 <p1>ลงทะเบียนสำหรับหน่วยงาน</p1><br><br>
-  <p2>ชื่อผู้ใช้ </p2>
-<input type="text" placeholder="ชื่อผู้ใช้" name="User" value=""  required minlength="3"><br><br>
-<p2>รหัสผ่าน </p2>
-<input type="password" placeholder="รหัสผ่าน" name="Pass" value=""required minlength="6"><br><br>
-<p2>ชื่อ </p2>
-<input type="text" placeholder="ชื่อ" name="Name" value="" required minlength="3"><br><br>
-<p2>ตำแหน่ง </p2>
-<input type="text" placeholder="ตำแหน่ง" name="Pos" value=""><br><br>
+  
+  <div class="row">
+     <div class="column">
+      <div class="box" style="text-align: end;">
+        <p2>ชื่อผู้ใช้ </p2><br><br><br>
+<p2>รหัสผ่าน </p2><br><br><br>
+<p2>ชื่อ </p2><br><br><br>
+<p2>ตำแหน่ง </p2><br><br><br>
+</div>
+</div>
 
+     <div class="column">
+      <div class="box" style="text-align: start;">
+      <input type="text" placeholder="ชื่อผู้ใช้" name="User" value=""  required minlength="3"><br><br>
+      <input type="password" placeholder="รหัสผ่าน" name="Pass" value=""required minlength="6"><br><br>
+      <input type="text" placeholder="ชื่อ" name="Name" value="" required minlength="3"><br><br>
+      <input type="text" placeholder="ตำแหน่ง" name="Pos" value=""><br><br>
+
+
+</div>
+</div>
+</div>
 </div>
     <div class="form-group">
     <a class="btn btn-default" style="width: 10%;
@@ -156,6 +186,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
           border-radius: 20px;" href="./BeforeRegis.php">ยกเลิก</a>
         <button type="submit" name="action" value="Save">ลงทะเบียน</button>
     </div>
+    
 
 </form>
 

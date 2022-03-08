@@ -64,33 +64,7 @@ function fncSubmit()
             background-position-x: 500%;
         }
     }
-    .column {
-        width: 60%;
-    }
- 
-    .box{
-        background-color: #f6efff;
-        padding: 30px;
-        margin: 60px;
-        height: 450px;
-        border-radius: 50px;   
-        text-align: start; 
-    }
-    .box:hover{background: #b0b0ff; color: #fff;}
 
-    .column1 {
-        width: 35%;
-    }
- 
-    .box1{
-        background-color: #320074;
-        color: #f6efff;
-        padding: 30px;
-        margin: 20px;
-        height: 200px;
-        border-radius: 30px;   
-        text-align: start; 
-    }
 
     h2{
         font-size: 30;
@@ -98,36 +72,7 @@ function fncSubmit()
     h3{
         font-size: 18;
     }
-    form.example input[type=text] {
-        padding: 10px;
-        font-size: 17px;
-        border: none;
-        width: 80%;
-        background: #FEF5FF;
-        border-radius: 10px;
-    }
-
-    form.example button {
-        width: 20%;
-        padding: 10px;
-        background: #9122F3;
-        color: white;
-        border: none;
-        font-size: 17px;
-        border-left: none;
-        cursor: pointer;
-        border-radius: 10px;
-    }
-
-    form.example button:hover {
-        background: #950BDA;
-    }
-
-    form.example::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+    
     p1 {
     font-weight: 200;
     text-align: center;
@@ -143,19 +88,27 @@ function fncSubmit()
     text-align: start;
   }
   form.example input[type=text] {
-          padding: 10px;
+          padding: 12px;
           font-size: 17px;
           border: none;
-          width: 40%;
-          background: #f6efff; 
-          color:#9122F3;
+          width: 75%;
+          background: #FEF5FF;
+          border-radius: 15px;
+          
+      }
+      form.example input[type=password] {
+          padding: 12px;
+          font-size: 17px;
+          border: none;
+          width: 75%;
+          background: #FEF5FF;
           border-radius: 15px;
       }
   
       form.example button {
           width: 10%;
           padding: 10px;
-          background: #26B439;
+          background: #9122F3;
           color: white;
           border: none;
           font-size: 17px;
@@ -166,7 +119,7 @@ function fncSubmit()
       
   
       form.example button:hover {
-          background: #11A10C;
+          background: #950BDA;
       }
   
       form.example::after {
@@ -174,8 +127,22 @@ function fncSubmit()
           clear: both;
           display: table;
       }
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
 
-    
+      .column {
+          float: left;
+          width: 40%;
+      }
+ 
+      .box{
+          
+          padding: 20px;
+          text-align: center;
+      }
 
 
 </style>
@@ -193,31 +160,44 @@ function fncSubmit()
   <br>
   <div class="form-group">
   <p1>แก้ไขข้อมูลสถานที่</p1><br><br>
-    <p2>ชื่อสถานที่ </p2>
+  <div class="row">
+     <div class="column">
+      <div class="box" style="text-align: end;">
+<p2>ชื่อสถานที่ </p2><br><br><br>
+<p2>ระดับ</p2><br><br><br>
+<p2>สถานะ </p2><br><br><br>
+<p2>จำนวนเตียงที่มี</p2><br><br><br>
+<p2>จำนวนเตียงที่ใช้</p2><br><br><br>
+<p2>ที่อยู่ </p2><br><br><br>
+<p2>จังหวัด </p2><br><br><br>
+<p2>อำเภอ</p2><br><br><br>
+<p2>เบอร์โทร </p2><br><br><br>
+<p2>LINE </p2><br><br><br>
+<p2>Facebook </p2><br><br><br>
+<p2>Website </p2><br><br><br>
+</div>
+</div>
+<div class="column">
+      <div class="box" style="text-align: start;">
+   
   <input type="text" placeholder="-ชื่อสถานที่-" name="name_location" value="<?php echo $location->nameLocation?> " required minlength=""><br><br>
-  <p2>ระดับ</p2>
-  <select name="level" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
+  <select name="level" style="width:75%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
   <option value="0" >-เลือกระดับสี-</option>
                     <option value="1">แดง</option>
                     <option value="2">เขียว</option>
                     <option value="3">เหลือง</option>
                     <option value="4">ส้ม</option>
 </select><br><br>
-  <p2>สถานะ </p2>
-  <select name="status" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select1">
+  <select name="status" style="width:75%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select1">
   <option value="0" >-เลือกสถานะ-</option>
                     <option value="1">ว่าง</option>
                     <option value="2">ไม่ว่าง</option>
                     
 </select><br><br>
-  <p2>จำนวนเตียงที่มี</p2>
   <input type="text" placeholder="-จำนวนเตียงที่มี-" name="quatity" value="<?php echo $location->quatity?>" required minlength=""><br><br>
-  <p2>จำนวนเตียงที่ใช้</p2>
-  <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="<?php echo $location->use?>" required minlength=""><br><br>
-  <p2>ที่อยู่ </p2>
+  <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="<?php echo $location->use?>" required minlength=""><br><br><br>
   <input type="text" placeholder="-ที่อยู่-" name="address" value="<?php echo $location->address?>" required minlength=""><br><br>
-  <p2>จังหวัด </p2>
-                        <select name="PV_id" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
+                        <select name="PV_id" style="width:75%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
                             <option value="0" >-เลือกจังหวัด-</option>
                             <?php
                                 require("./connection_connect.php");
@@ -231,21 +211,20 @@ function fncSubmit()
                             
                         </select>
                         <br><br>
-                        <p2>อำเภอ</p2>
                   
-                        <select name="id_amphure" style="width:40%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="district">
+                        <select name="id_amphure" style="width:75%; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="district">
                             <option value="0">-เลือกอำเภอ-</option>
                         </select><br><br>
                
-  <p2>เบอร์โทร </p2>
+ 
   <input type="text" placeholder="-เบอร์โทร-" name="tel" value="<?php echo $location->tel?>"><br><br>
-  <p2>LINE </p2>
-  <input type="text" placeholder="-LINE-" name="line" value="<?php echo $location->line?>"><br><br>
-  <p2>Facebook </p2>
+  <input type="text" placeholder="-LINE-" name="line" value="<?php echo $location->line?>"><br><br><br>
   <input type="text" placeholder="-FACEBOOK-" name="face" value="<?php echo $location->facebook?>"><br><br>
-  <p2>Website </p2>
   <input type="text" placeholder="-WEBSITE-" name="web" value="<?php echo $location->web?>"><br><br>
-  
+  </div>
+</div></div>
+
+
   <input type="hidden" name="offID" value="<?php echo $location->offID ?>"/>
   <input type="hidden" name="locationID" value="<?php echo $location->id_location ?>"/>
   <input type="hidden" name="contactID" value="<?php echo $location->contactID ?>"/>

@@ -16,11 +16,9 @@ class RegisterController{
         $countOff = Register::sentOffID();
         settype($countOff,"integer");
         $offID = $countOff+1;
-        echo $offID;
         settype($offID,"string");
-        echo $user,$pass,$offName,$offPos;
-       Register::addOff($offID,$offName,$offPos);
-       Register::addAcc($user,$pass,$offID);
+        Register::addOff($offID,$offName,$offPos);
+        Register::addAcc($user,$pass,$offID);
         
     }
     public function no(){

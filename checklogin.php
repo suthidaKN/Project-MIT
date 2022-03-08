@@ -56,7 +56,7 @@ session_id();
                       echo '<script>
                       setTimeout(function() {
                        swal({
-                           title: "Login สำเร็จ",
+                           title: "เข้าสู่ระบบสำเร็จ",
                            text: " ",
                            type: "success"
                        }, function() {

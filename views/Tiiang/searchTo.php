@@ -167,7 +167,7 @@ function fncSubmit()
 </select><br>
 
 <input type="hidden" name="controller" value="Tiiang"/><br>
-<button type="submit" name="action" id="button" value="search">Search</button>
+<button type="submit" name="action" id="button" value="search">ค้นหา</button>
 </form>
 <a class="btn btn-default" style="background-color: #C9D1FD; color: #7500AC; width:18% ; border-radius: 15px;" href=?controller=Tiiang&action=bedAll&<?php echo "key= "?>>เตียงทั้งหมด</a>   
 

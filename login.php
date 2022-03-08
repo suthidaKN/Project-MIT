@@ -45,18 +45,19 @@
     }
   }
   form.example input[type=text] {
-          padding: 10px;
+          padding: 12px;
           font-size: 17px;
           border: none;
-          width: 30%;
+          width: 75%;
           background: #FEF5FF;
           border-radius: 15px;
+          
       }
       form.example input[type=password] {
-          padding: 10px;
+          padding: 12px;
           font-size: 17px;
           border: none;
-          width: 30%;
+          width: 75%;
           background: #FEF5FF;
           border-radius: 15px;
       }
@@ -72,6 +73,7 @@
           cursor: pointer;
           border-radius: 20px;
       }
+      
   
       form.example button:hover {
           background: #950BDA;
@@ -81,6 +83,22 @@
           content: "";
           clear: both;
           display: table;
+      }
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+
+      .column {
+          float: left;
+          width: 40%;
+      }
+ 
+      .box{
+          
+          padding: 20px;
+          text-align: center;
       }
 </style>
 <body style="font-family: 'Prompt', sans-serif;  background-image: linear-gradient(#ccccff,#e5ccff);">
@@ -122,20 +140,22 @@
 
 <form  name="formlogin" action="checklogin.php" method="POST" id="login" class="example">
   <p1>เข้าสู่ระบบสำหรับหน่วยงาน</p1><br><br>
-        <div class="form-group">
-          <div class="col-sm-12">
-          <p2>ชื่อผู้ใช้ </p2>
-            <input type="text"  name="username" required placeholder="Username" required minlength="3"/><br>
+
+          <div class="row">
+     <div class="column">
+      <div class="box" style="text-align: end;">
+          <p2>ชื่อผู้ใช้ </p2><br><br>
+          <br> <p2>รหัสผ่าน </p2>
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-sm-12">
-         <br> <p2>รหัสผ่าน </p2>
-            <input type="password" name="password" required placeholder="Password" required minlength="6" /><br>
+     <div class="column">
+      <div class="box" style="text-align: start;">
+            <input type="text"  name="username" required placeholder="Username" required minlength="3"/><br><br>
+            <input type="password" name="password" required placeholder="Password" required minlength="6" /><br><br>
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-sm-12">
+        </div>
+      
             <div class="form-group">
             <br> <a class="btn btn-default" style="width: 10%;
           padding: 10px;
@@ -156,12 +176,11 @@
           cursor: pointer;
           border-radius: 20px;" id="btn">
             <span class="glyphicon glyphicon-log-in"></span>
-             Login </button></div>
+             เข้าสู่ระบบ </button></div>
                <label>
                 <input type="checkbox" checked="checked" name="remember"> Remember me
                </label>
-          </div>
-        </div>
+      
       </form>
 
       </div>

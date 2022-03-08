@@ -28,7 +28,7 @@
         background-color: #f6efff;
         padding: 30px;
         margin: 60px;
-        height: 400px;
+        height: 420px;
         border-radius: 50px;   
         text-align: start; 
     }
@@ -109,7 +109,7 @@
 </head>
 <body>
     <div style="background-image: linear-gradient(#ccccff,#cc99ff); background-repeat: no-repeat; background-size: 100% 80%px; text-align: center;">
-        <div class="container-fluid" style="height: 600px;">
+        <div class="container-fluid" style="height: 620px;">
          <br><br>
 
 
@@ -150,7 +150,7 @@
                    <div style="text-align:start;">
                     <a class="btn btn-default" style="background-color:  #56C45F; color: #fff; border-radius: 15px; "href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=$key2"?>>ย้อนกลับ</a><br>
                     </div> 
-                </div>
+                </div> <br><br>
                 </div> 
             </center>
         </div>

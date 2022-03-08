@@ -64,33 +64,62 @@ function fncSubmit()
             background-position-x: 500%;
         }
     }
-    .column {
-        width: 60%;
-    }
- 
-    .box{
-        background-color: #f6efff;
-        padding: 30px;
-        margin: 60px;
-        height: 450px;
-        border-radius: 50px;   
-        text-align: start; 
-    }
-    .box:hover{background: #b0b0ff; color: #fff;}
+    form.example input[type=text] {
+          padding: 12px;
+          font-size: 17px;
+          border: none;
+          width: 75%;
+          background: #FEF5FF;
+          border-radius: 15px;
+          
+      }
+      form.example input[type=password] {
+          padding: 12px;
+          font-size: 17px;
+          border: none;
+          width: 75%;
+          background: #FEF5FF;
+          border-radius: 15px;
+      }
+  
+      form.example button {
+          width: 10%;
+          padding: 10px;
+          background: #9122F3;
+          color: white;
+          border: none;
+          font-size: 17px;
+          border-left: none;
+          cursor: pointer;
+          border-radius: 20px;
+      }
+      
+  
+      form.example button:hover {
+          background: #950BDA;
+      }
+  
+      form.example::after {
+          content: "";
+          clear: both;
+          display: table;
+      }
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
 
-    .column1 {
-        width: 35%;
-    }
+      .column {
+          float: left;
+          width: 40%;
+      }
  
-    .box1{
-        background-color: #320074;
-        color: #f6efff;
-        padding: 30px;
-        margin: 20px;
-        height: 200px;
-        border-radius: 30px;   
-        text-align: start; 
-    }
+      .box{
+          
+          padding: 20px;
+          text-align: center;
+      }
 
     h2{
         font-size: 30;
@@ -98,36 +127,7 @@ function fncSubmit()
     h3{
         font-size: 18;
     }
-    form.example input[type=text] {
-        padding: 10px;
-        font-size: 17px;
-        border: none;
-        width: 80%;
-        background: #FEF5FF;
-        border-radius: 10px;
-    }
-
-    form.example button {
-        width: 20%;
-        padding: 10px;
-        background: #9122F3;
-        color: white;
-        border: none;
-        font-size: 17px;
-        border-left: none;
-        cursor: pointer;
-        border-radius: 10px;
-    }
-
-    form.example button:hover {
-        background: #950BDA;
-    }
-
-    form.example::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+    
     p1 {
     font-weight: 200;
     text-align: center;
@@ -142,40 +142,7 @@ function fncSubmit()
     color: #21005E;
     text-align: start;
   }
-  form.example input[type=text] {
-          padding: 10px;
-          font-size: 17px;
-          border: none;
-          width: 40%;
-          background: #f6efff; 
-          color:#9122F3;
-          border-radius: 15px;
-      }
   
-      form.example button {
-          width: 10%;
-          padding: 10px;
-          background: #26B439;
-          color: white;
-          border: none;
-          font-size: 17px;
-          border-left: none;
-          cursor: pointer;
-          border-radius: 20px;
-      }
-      
-  
-      form.example button:hover {
-          background: #11A10C;
-      }
-  
-      form.example::after {
-          content: "";
-          clear: both;
-          display: table;
-      }
-
-    
 
 
 </style>
@@ -193,14 +160,21 @@ function fncSubmit()
   <br>
   <div class="form-group">
   <p1>แก้ไขข้อมูล</p1><br><br>
-
-  <p2>ชื่อ </p2>
+  <div class="row">
+     <div class="column">
+      <div class="box" style="text-align: end;">
+  <p2>ชื่อ </p2><br><br><br>
+  <p2>ตำแหน่ง</p2><br><br><br>
+      </div>
+     </div>
+     <div class="column">
+      <div class="box" style="text-align: start;">
   <input type="text" name="offName" value="<?php echo $document->offName?>" required minlength=""><br><br>
-  <p2>ตำแหน่ง</p2>
+  
   <input type="text" name="offPos" value="<?php echo $document->offPos?>" required minlength=""><br><br>
  
   <input type="hidden" name="offID" value="<?php echo $document->offID ?>"/>
-
+      </div></div></div>
   </div>
   <a class="btn btn-default" style="   width: 10%;
           padding: 10px;
