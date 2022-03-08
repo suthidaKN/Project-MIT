@@ -53,7 +53,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
             <a class="nav-link active" aria-current="page"  href="?controller=AboutMe&action=index">ข้อมูลของฉัน</a> 
         </li>
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./Logout.php">logout</a>  
+            <a class="nav-link active" aria-current="page" href="./Logout.php">ออกจากระบบ</a>  
         </li>
         
       </ul>
