@@ -100,11 +100,7 @@ if(isset($_GET['controller'])&&isset($_GET['action']))
   </div>
 </nav>
    
-<div style="background-color: #9933ff; text-align: center;" class="text-light">
-        <?php
-            echo "file:Logout" ;
-        ?>
-      </div>
+
       <div style="background-image: linear-gradient(#ccccff,#cc99ff);background-repeat: no-repeat; background-size: 100% 80%px;">
     <div style="height: 600px;">
       <br><br><br><br><br><br><br>

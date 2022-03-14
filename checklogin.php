@@ -26,11 +26,6 @@
     </button>
   </div>
 </nav>
-<div style="background-color: #9933ff; text-align: center;" class="text-light">
-        <?php
-            echo "file:CheckLogin";
-        ?>
-      </div>
 <div style="height: 600px;">
 <?php 
 session_start();

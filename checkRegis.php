@@ -76,11 +76,7 @@ $action = 'no';
     </button>
   </div>
 </nav>
-<div style="background-color: #9933ff; text-align: center;" class="text-light">
-        <?php
-            echo "file:CheckRegister : controller=".$controller.",action= ".$action;
-        ?>
-      </div>
+
       <div style="height: 600px;">
       
         <?php require_once("routes.php") ?>
