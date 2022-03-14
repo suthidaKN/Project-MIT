@@ -89,10 +89,10 @@ function fncSubmit()
   <option value="0">-เลือกพื้นที่ที่ต้องการ-</option>
                     <option value="กรุงเทพ">กรุงเทพมหานคร</option>
                     <option value="กระบี่">กระบี่</option>
-                    <option value="กาญจนบุรี">กาญจนบุรี </option>
+                    <option value="กาญจนบุรี ">กาญจนบุรี </option>
                     <option value="กาฬสินธุ์">กาฬสินธุ์</option>
                     <option value="กำแพงเพชร ">กำแพงเพชร</option>
-                    <option value="ขอนแก่น">ขอนแก่น</option>
+                    <option value="ขอนแก่น ">ขอนแก่น</option>
                     <option value="จันทบุรี">จันทบุรี</option>
                     <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
                     <option value="ชลบุรี">ชลบุรี</option>
@@ -167,7 +167,7 @@ function fncSubmit()
 </select><br>
 
 <input type="hidden" name="controller" value="Tiiang"/><br>
-<button type="submit" name="action" id="button" value="searchPlace">ค้นหา</button>
+<button type="submit" name="action" id="button" value="search">ค้นหา</button>
 </form>
 <a class="btn btn-default" style="background-color: #C9D1FD; color: #7500AC; width:18% ; border-radius: 15px;" href=?controller=Tiiang&action=bedAll&<?php echo "key= "?>>เตียงทั้งหมด</a>   
 

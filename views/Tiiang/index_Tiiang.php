@@ -113,7 +113,7 @@
         <div class="container-fluid" >
             <br>  
         
-            <a class="btn btn-default" style="background-color: #B700FF; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2"?>>เตียงใน<?php echo $key ?>ทั้งหมด</a>
+            <a class="btn btn-default" style="background-color: #B700FF; color: #fff" href=?controller=Tiiang&action=search&<?php echo "key=$key"?>&<?php echo "key2=green"?>>เตียงใน<?php echo $key ?>ทั้งหมด</a>
             <a class="btn btn-default" style="background-color: #00cc00; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=green"?>>สำหรับผู้ป่วยสีเขียว</a>
             <a class="btn btn-default" style="background-color: #FFD000; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=yellow"?>>สำหรับผู้ป่วยสีเหลือง</a>
             <a class="btn btn-default" style="background-color: #ff8000; color: #fff" href=?controller=Tiiang&action=searchPlace&<?php echo "key=$key"?>&<?php echo "key2=orange"?>>สำหรับผู้ป่วยสีส้ม</a>
