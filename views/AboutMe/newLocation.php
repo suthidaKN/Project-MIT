@@ -162,78 +162,78 @@ function fncSubmit()
   <div class="row">
      <div class="column">
       <div class="box" style="text-align: end;">
-<p2>ชื่อสถานที่ </p2><br><br><br>
-<p2>ระดับ</p2><br><br><br>
-<p2>สถานะ </p2><br><br><br>
-<p2>จำนวนเตียงที่มี</p2><br><br><br>
-<p2>จำนวนเตียงที่ใช้</p2><br><br><br>
-<p2>ที่อยู่ </p2><br><br><br>
-<p2>จังหวัด </p2><br><br><br>
-<p2>อำเภอ</p2><br><br><br>
-<p2>เบอร์โทร </p2><br><br><br>
-<p2>LINE </p2><br><br><br>
-<p2>Facebook </p2><br><br><br>
-<p2>Website </p2><br><br><br>
-</div>
-</div>
+        <p2>ชื่อสถานที่ </p2><br><br><br>
+        <p2>ระดับ</p2><br><br><br>
+        <p2>สถานะ </p2><br><br><br>
+        <p2>จำนวนเตียงที่มี</p2><br><br><br>
+        <p2>จำนวนเตียงที่ใช้</p2><br><br><br>
+        <p2>ที่อยู่ </p2><br><br><br>
+        <p2>จังหวัด </p2><br><br><br>
+        <p2>อำเภอ</p2><br><br><br>
+        <p2>เบอร์โทร </p2><br><br><br>
+        <p2>LINE </p2><br><br><br>
+        <p2>Facebook </p2><br><br><br>
+        <p2>Website </p2><br><br><br>
+      </div>
+     </div>
      <div class="column">
       <div class="box" style="text-align: start;">
     
-  <input type="text" placeholder="-ชื่อสถานที่-" name="name_location" value="" required minlength=""><br><br>
+        <input type="text" placeholder="-ชื่อสถานที่-" name="name_location" value="" required minlength=""><br><br>
 
-  <select name="level" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
-  <option value=" " >-เลือกระดับสี-</option>
-                    <option value="1">แดง</option>
-                    <option value="2">เขียว</option>
-                    <option value="3">เหลือง</option>
-                    <option value="4">ส้ม</option>
-</select><br><br>
-  
-  <select name="status" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select1">
-  <option value=" " >-เลือกสถานะ-</option>
-                    <option value="1">ว่าง</option>
-                    <option value="2">ไม่ว่าง</option>
-                    
-</select><br><br>
-  
-  <input type="text" placeholder="-จำนวนเตียงที่มี-" name="quatity" value="" required minlength=""><br><br>
-  
-  <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="" required minlength="" ><br><br><br>
-  
-  <input type="text" placeholder="-ที่อยู่-" name="address" required minlength=""><br><br>
-  
-                        <select name="PV_id" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
-                            <option value=" " >-เลือกจังหวัด-</option>
-                            <?php
-                                require("./connection_connect.php");
-                                $sql="SELECT * FROM thai_provinces order by PV_name_th";
-                                $result = $conn->query($sql);
-                                while($my_row = $result->fetch_assoc()){
-                            ?>
-                            <option value="<?= $my_row["PV_id"];?>"><?=$my_row["PV_name_th"]; ?></option>
-                            <?php } ?>
+        <select name="level" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select">
+        <option value=" " >-เลือกระดับสี-</option>
+                            <option value="1">แดง</option>
+                            <option value="2">เขียว</option>
+                            <option value="3">เหลือง</option>
+                            <option value="4">ส้ม</option>
+        </select><br><br>
+        
+        <select name="status" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;"  id="select1">
+        <option value=" " >-เลือกสถานะ-</option>
+                            <option value="1">ว่าง</option>
+                            <option value="2">ไม่ว่าง</option>
                             
-                            
-                        </select>
-                        <br><br>
+        </select><br><br>
+        
+        <input type="text" placeholder="-จำนวนเตียงที่มี-" name="quatity" value="" required minlength=""><br><br>
+        
+        <input type="text" placeholder="-จำนวนเตียงที่ใช้-" name="use" value="" required minlength="" ><br><br><br>
+        
+        <input type="text" placeholder="-ที่อยู่-" name="address" required minlength=""><br><br>
+        
+                                <select name="PV_id" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="province">
+                                    <option value=" " >-เลือกจังหวัด-</option>
+                                    <?php
+                                        require("./connection_connect.php");
+                                        $sql="SELECT * FROM thai_provinces order by PV_name_th";
+                                        $result = $conn->query($sql);
+                                        while($my_row = $result->fetch_assoc()){
+                                    ?>
+                                    <option value="<?= $my_row["PV_id"];?>"><?=$my_row["PV_name_th"]; ?></option>
+                                    <?php } ?>
+                                    
+                                    
+                                </select>
+                                <br><br>
+                                
                         
-                  
-                        <select name="id_amphure" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="district">
-                            <option value=" ">-เลือกอำเภอ-</option>
-                        </select><br><br>
-               
-  
-  <input type="text" placeholder="-เบอร์โทร-" name="tel" value=""><br><br>
-  
-  <input type="text" placeholder="-LINE-" name="line" value=""><br><br>
-  
-  <input type="text" placeholder="-FACEBOOK-" name="face" value=""><br><br>
-  
-  <input type="text" placeholder="-WEBSITE-" name="web" value=""><br><br>
+                                <select name="id_amphure" style="width: 75%;; border-radius: 20px; padding: 10px; background: #f6efff; color:#9122F3; font-size: 17px;" id="district">
+                                    <option value=" ">-เลือกอำเภอ-</option>
+                                </select><br><br>
+                    
+        
+        <input type="text" placeholder="-เบอร์โทร-" name="tel" value=""><br><br>
+        
+        <input type="text" placeholder="-LINE-" name="line" value=""><br><br>
+        
+        <input type="text" placeholder="-FACEBOOK-" name="face" value=""><br><br>
+        
+        <input type="text" placeholder="-WEBSITE-" name="web" value=""><br><br>
 
+      </div>
+     </div>
   </div>
-      </div>
-      </div>
   
   <?php 
     settype($locationID,"integer");
@@ -242,7 +242,7 @@ function fncSubmit()
     settype($contactID,"integer");
     $ID_contact = $contactID+1;
     
-    ?>
+  ?>
 
   
   <input type="hidden" name="offID" value="<?php echo $offID ?>"/>

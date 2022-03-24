@@ -1,9 +1,6 @@
 <?php
 class AboutMeController{
 
-    public function home(){
-        require_once("./views/AboutMe/home.php");
-    }
     public function index(){
         $ID = $_SESSION["user"];
         $tiiangList = location::getAllUser($ID);
